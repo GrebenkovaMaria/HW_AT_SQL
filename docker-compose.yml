@@ -1,0 +1,13 @@
+version: '3.1'
+services:
+  mysql:
+    image: mysql:8.0
+    ports:
+      - '3306:3306'
+    volumes:
+      - ./Desktop/Maria/Netology.testing/AutoTest/HW_AT_SQL/data:/var/lib/mysql
+    environment:
+      - MYSQL_RANDOM_ROOT_PASSWORD=yes
+      - MYSQL_DATABASE=app_db
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=12345678
