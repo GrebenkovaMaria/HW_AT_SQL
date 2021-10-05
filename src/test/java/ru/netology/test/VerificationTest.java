@@ -1,6 +1,7 @@
 package ru.netology.test;
 
 import com.codeborne.selenide.Condition;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -24,6 +25,11 @@ public class VerificationTest {
     @AfterEach
     void tearDown(){
         closeWindow();
+    }
+
+    @AfterAll
+    static void cleanDb() {
+        DataHelper.cleanDb();
     }
 
     @Test

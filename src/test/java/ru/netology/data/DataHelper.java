@@ -45,20 +45,6 @@ public class DataHelper {
 
 
     @SneakyThrows
-    public static void cleanDb(){
-        QueryRunner runner = new QueryRunner();
-        String deleteAllAuthCode = "DELETE FROM auth_codes;" ;
-        String deleteAllCards = "DELETE FROM cards;" ;
-        String deleteAllUsers = "DELETE FROM users;" ;
-        Connection conn = DriverManager.getConnection(
-                "jdbc:mysql://localhost:3306/app_db", "user", "12345678"
-        );
-        runner.update(conn, deleteAllAuthCode);
-        runner.update(conn, deleteAllCards);
-        runner.update(conn, deleteAllUsers);
-    }
-
-    @SneakyThrows
     public static AuthCodes getAuthCode(User user)  {
           clearAuthCode();
         QueryRunner runner = new QueryRunner();
@@ -73,7 +59,19 @@ public class DataHelper {
         return authCode;
     }
 
-
+    @SneakyThrows
+    public static void cleanDb(){
+        QueryRunner runner = new QueryRunner();
+        String deleteAllAuthCode = "DELETE FROM auth_codes;" ;
+        String deleteAllCards = "DELETE FROM cards;" ;
+        String deleteAllUsers = "DELETE FROM users;" ;
+        Connection conn = DriverManager.getConnection(
+                "jdbc:mysql://localhost:3306/app_db", "user", "12345678"
+        );
+        runner.update(conn, deleteAllAuthCode);
+        runner.update(conn, deleteAllCards);
+        runner.update(conn, deleteAllUsers);
+    }
  }
 
 
